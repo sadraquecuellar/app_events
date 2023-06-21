@@ -1,12 +1,15 @@
 import React from 'react';
-import { Text } from 'react-native';
+
+import { SearchInput } from '../../components/SearchInput';
 
 import * as S from './styles';
+import { FeaturedEvent } from '../../components/FeaturedEvent';
 
 export const Home = () => {
   return (
     <S.Container>
-      <Text>Home Screen</Text>
+      <SearchInput/>
+      <FeaturedEvent/>
     </S.Container>
   )
 }

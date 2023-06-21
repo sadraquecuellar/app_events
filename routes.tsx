@@ -9,7 +9,16 @@ export function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen 
+          name="Home" 
+          component={Home} 
+          options={{
+            title:'',
+            headerStyle:{
+              backgroundColor: '#f2f2f2'
+            }
+            // headerShown: false
+          }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
