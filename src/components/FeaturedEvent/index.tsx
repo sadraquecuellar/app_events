@@ -1,8 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
+
+import { FeatureCard } from '../FeatureCard';
+import { featureEvents } from '../../../data/featureEvents';
 
 import * as S from './styles';
-import { FeatureCard } from '../FeatureCard';
 
 export const FeaturedEvent= () => {
   return (
@@ -13,9 +14,11 @@ export const FeaturedEvent= () => {
         </S.Title>
       </S.Header>
       <S.CarrouselCards horizontal showsHorizontalScrollIndicator={false}>
-        <FeatureCard/>
-        <FeatureCard/>
-        <FeatureCard/>
+        {featureEvents.map((item, index) =>{
+          return (
+            <FeatureCard key={index} image={item.image} title={item.title} date={item.date} />
+          )
+        })}
       </S.CarrouselCards>
     </S.Container>
   )

@@ -3,24 +3,24 @@ import {StyleSheet} from 'react-native';
 
 import * as S from './styles';
 
+const style = StyleSheet.create({
+  boxShadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+  }
+});
+
 const Participants = () => {
   const person1 = 'https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg'
   const person2 = 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Tobey_Maguire_2014.jpg'
   const person3 = 'https://br.web.img3.acsta.net/c_310_420/pictures/18/06/29/00/35/0101925.jpg'
-
-  const style = StyleSheet.create({
-    boxShadow: {
-      shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-
-      elevation: 5,
-    }
-  });
 
   return(
     <S.ContainerParticipants>
@@ -44,19 +44,25 @@ const Participants = () => {
   )
 }
 
-export const FeatureCard = () => {
+interface FeatureCardProps {
+  image: string,
+  title: string,
+  date: string
+}
+
+export const FeatureCard = ({image, title, date}:FeatureCardProps) => {
  
   return (
     <S.Container>
       <S.ContainerImageCard>
          <S.ImageCard 
           source={{
-            uri: 'https://media.seudinheiro.com/uploads/2023/03/Lollapalooza-Brasil-2022_divulgacao_-e1679498840676.jpg',
+            uri: image,
           }}
         />
         <S.DetailsImageCard>
-          <S.TextDetailsPrimary>Lollapalooza - Festival de música</S.TextDetailsPrimary>
-          <S.TextDetailsSecondary>Quinta-feira , 3 de agosto</S.TextDetailsSecondary>
+          <S.TextDetailsPrimary>{title}</S.TextDetailsPrimary>
+          <S.TextDetailsSecondary>{date}</S.TextDetailsSecondary>
         </S.DetailsImageCard>
       </S.ContainerImageCard>
       <S.Details>
@@ -68,3 +74,4 @@ export const FeatureCard = () => {
     </S.Container>
   )
 }
+
