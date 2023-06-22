@@ -1,13 +1,11 @@
 import React from 'react';
 import { NavigationProp } from '@react-navigation/native';
 import { Filters } from '../../components/Filters';
-import * as S from './styles';
 import { useFilters } from '../../hooks/useFilters';
-interface SearchProps {
-  navigation: NavigationProp<any,any>
-};
+import { RouteType } from '../../types/RouteType';
+import * as S from './styles';
 
-export const Search = ({navigation}: SearchProps ) => {
+export const Search = ({navigation}: RouteType ) => {
 
   const { search, minPrice, maxPrice, uf, month, category } = useFilters()
 

@@ -4,7 +4,12 @@ import { CardListEvent } from '../CardListEvent';
 
 import * as S from './styles';
 
-export const ListEvents= () => {
+type ListEventsType = {
+  join: () => void
+}
+
+export const ListEvents= ({join}: ListEventsType) => {
+
   return (
     <S.Container>
       <S.Header>
@@ -13,10 +18,9 @@ export const ListEvents= () => {
         </S.Title>
       </S.Header>
       <S.ContainerCards>
-        <CardListEvent/>
-        <CardListEvent/>
-        <CardListEvent/>
-        <CardListEvent/>
+        {[1,2,3].map((event)=>(
+          <CardListEvent key={event} join={join}/>
+        ))}
       </S.ContainerCards>
     </S.Container>
   )

@@ -18,9 +18,13 @@ const style = StyleSheet.create({
   }
 });
 
-export const CardListEvent = () => {
+type CardListEventType = {
+  join: () => void
+}
+
+export const CardListEvent = ({join}: CardListEventType) => {
   return (
-    <S.Container style={style.boxShadow} activeOpacity={0.7}>
+    <S.Container style={style.boxShadow} activeOpacity={0.7} onPress={join}>
         <S.Image source={{uri: 'https://gerenciador.popload.com.br/wp-content/uploads/2015/01/220115_acdc2.jpg' }}/>
         <S.Details>
           <S.TextSecondary>

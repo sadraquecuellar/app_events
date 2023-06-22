@@ -130,9 +130,10 @@ export function Routes() {
           name="DetailsEvent"
           component={DetailsEvent}
           options={{
-            headerTransparent: false,
-            title: '',
-            headerShown: false,
+            title:'Detalhes do Evento',
+            headerTitleAlign: 'center',
+            headerShadowVisible: false,
+            headerBackTitleVisible: false
           }}
         />
       </Stack.Navigator>
