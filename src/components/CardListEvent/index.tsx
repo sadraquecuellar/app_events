@@ -2,10 +2,25 @@ import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
 
 import * as S from './styles';
+import { StyleSheet } from 'react-native';
+
+const style = StyleSheet.create({
+  boxShadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 3,
+  }
+});
 
 export const CardListEvent = () => {
   return (
-    <S.Container activeOpacity={0.7}>
+    <S.Container style={style.boxShadow} activeOpacity={0.7}>
         <S.Image source={{uri: 'https://gerenciador.popload.com.br/wp-content/uploads/2015/01/220115_acdc2.jpg' }}/>
         <S.Details>
           <S.TextSecondary>

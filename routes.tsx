@@ -7,6 +7,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Home } from './src/pages/Home';
+import { Search } from './src/pages/Search';
+import { UserProfile } from './src/components/Header/UserProfile';
+import { Logo } from './src/components/Header/Logo';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -26,14 +29,14 @@ const TabNavigation = () => {
         options={{
           title:'',
           headerStyle:{
-            backgroundColor: '#f2f2f2'
+            backgroundColor: '#FFF'
           },
-          headerRight: () => (
-            <Text>Perfil</Text>
-            ),
           headerLeft: () => (
-            <Text>Logo</Text>
+            <Logo/>
           ),
+          headerRight: () => (
+            <UserProfile/>
+            ),
           headerShadowVisible: false,
           tabBarIcon: ({color})=> {
             return <AntDesign name={'home'} size={22} color={color}/>
@@ -43,18 +46,19 @@ const TabNavigation = () => {
       />
       <Tab.Screen 
         name="Search" 
-        component={Home} 
+        component={Search} 
         options={{
           title:'',
+          tabBarHideOnKeyboard: true,
           headerStyle:{
-            backgroundColor: '#f2f2f2'
+            backgroundColor: '#fff'
           },
-          headerRight: () => (
-            <Text>Perfil</Text>
-            ),
           headerLeft: () => (
-            <Text>Logo</Text>
+            <Logo/>
           ),
+          headerRight: () => (
+            <UserProfile/>
+            ),
           headerShadowVisible: false,
           tabBarIcon: ({color})=> {
             return <AntDesign name={'search1'} size={22} color={color}/>
@@ -70,15 +74,15 @@ export function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            component={TabNavigation}
-            options={{
-              headerTransparent: false,
-              title: '',
-              headerShown: false,
-            }}
-          />
+        <Stack.Screen
+          name="HomeStack"
+          component={TabNavigation}
+          options={{
+            headerTransparent: false,
+            title: '',
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

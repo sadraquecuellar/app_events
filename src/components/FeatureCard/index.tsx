@@ -14,6 +14,17 @@ const style = StyleSheet.create({
     shadowRadius: 3.84,
 
     elevation: 5,
+  },
+  boxShadow2: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+
+    elevation: 3,
   }
 });
 
@@ -53,7 +64,7 @@ interface FeatureCardProps {
 export const FeatureCard = ({image, title, date}:FeatureCardProps) => {
  
   return (
-    <S.Container>
+    <S.Container style={style.boxShadow2}>
       <S.ContainerImageCard>
          <S.ImageCard 
           source={{

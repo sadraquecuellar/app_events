@@ -1,20 +1,25 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
+  flex:1;
   width: 100%;
-  padding-bottom:20px;
+  height: 100%;
+  background: #FFF;
 `;
+
 export const Header = styled.View`
   width: 100%;
   padding: 5px 20px;
   justify-content: center;
   margin-bottom:10px;
 `;
+
 export const Title = styled.Text`
   font-size: 20px;
   font-family: 'Nunito_700Bold';
 `;
 
-export const CarrouselCards = styled.ScrollView`
-  height: 270px;
+export const Events = styled.View`
+  width: 100%;
+  padding: 10px 20px;
 `;

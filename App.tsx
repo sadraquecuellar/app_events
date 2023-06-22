@@ -6,10 +6,13 @@ import {
   Nunito_700Bold,
   Nunito_800ExtraBold,
 } from '@expo-google-fonts/nunito';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { Routes } from './routes';
 
 export default function App() {
+  const queryClient = new QueryClient()
+
   let [fontsLoaded] = useFonts({
     Nunito_300Light,
     Nunito_400Regular,
@@ -22,6 +25,8 @@ export default function App() {
     return null;
   }
   return (
-    <Routes/>
+    <QueryClientProvider client={queryClient}>
+      <Routes/>
+    </QueryClientProvider>
   );
 }
