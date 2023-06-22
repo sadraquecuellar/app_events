@@ -53,9 +53,9 @@ const SearchStack = () =>{
 }
 const HomeStack = () =>{
   return (
-    <Stack.Navigator initialRouteName='Home'>
+    <Stack.Navigator initialRouteName='HomeScreen'>
       <Stack.Screen
-        name="Home" 
+        name="HomeScreen" 
         component={Home} 
         options={{
           title:'',

@@ -24,10 +24,10 @@ export const Filters = ({onSearch}: any) => {
 
   return (
     <S.Container>
-      <SearchInput/>
+      <SearchInput clearFilters={clearFilters}/>
       <Price clearFilters={clearFilters} />
-      <Months months={!monthLoading && dataMonth || [{ value: '', label: ''}]} clearFilters={clearFilters}/>
       <Location ufs={!ufLoading && dataUf || [{ value: '', label: ''}]} clearFilters={clearFilters}/>
+      <Months months={!monthLoading && dataMonth || [{ value: '', label: ''}]} clearFilters={clearFilters}/>
       <Categories categories={!categoriesLoading && dataCategory || [{ value: '', label: ''}]} clearFilters={clearFilters}/>
       <S.Row>
         <S.ButtonSearch activeOpacity={0.7} onPress={handleSearch}>

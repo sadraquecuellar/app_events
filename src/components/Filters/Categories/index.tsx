@@ -3,17 +3,18 @@ import {Platform, StyleSheet} from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 
 import * as S from '../styles';
+import { useFilters } from '../../../hooks/useFilters';
 
 interface CategoriesProps {
   categories: Array<{value: string, label: string}>,
   clearFilters: boolean 
 }
 export const Categories = ({categories, clearFilters}: CategoriesProps) =>{
-  const [value, setValue] = useState('');
+  const { category, setCategory } = useFilters()
 
   useEffect(()=>{
     if(clearFilters){
-      setValue('')
+      setCategory('')
     }
   },[clearFilters])
   
@@ -32,9 +33,9 @@ export const Categories = ({categories, clearFilters}: CategoriesProps) =>{
       labelField="label"
       valueField="value"
       placeholder={'Selecione a categoria...'}
-      value={value}
+      value={category}
       onChange={item => {
-        setValue(item.value)
+        setCategory(item.value)
       }}
     />
     </>

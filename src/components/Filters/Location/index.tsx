@@ -3,17 +3,18 @@ import {Platform, StyleSheet} from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 
 import * as S from '../styles';
+import { useFilters } from '../../../hooks/useFilters';
 
 interface LocationProps {
   ufs: {value: string, label: string}[],
   clearFilters: boolean 
 }
 export const Location = ({ufs, clearFilters}:LocationProps) =>{
-  const [value, setValue] = useState('');
+  const { uf, setUf } = useFilters()
 
   useEffect(()=>{
     if(clearFilters){
-      setValue('')
+      setUf('')
     }
   },[clearFilters])
   
@@ -34,9 +35,9 @@ export const Location = ({ufs, clearFilters}:LocationProps) =>{
       valueField="value"
       placeholder={'Selecione o estado...'}
       searchPlaceholder="ex. Mato Grosso do Sul"
-      value={value}
+      value={uf}
       onChange={item => {
-        setValue(item.value)
+        setUf(item.value)
       }}
     />
     </>

@@ -3,17 +3,18 @@ import {Platform, StyleSheet} from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 
 import * as S from '../styles';
+import { useFilters } from '../../../hooks/useFilters';
 
 interface MonthsProps {
   months: Array<{value: string, label: string}>,
   clearFilters: boolean 
 }
 export const Months = ({months, clearFilters}:MonthsProps) =>{
-  const [value, setValue] = useState('');
+  const { month, setMonth } = useFilters()
 
   useEffect(()=>{
     if(clearFilters){
-      setValue('')
+      setMonth('')
     }
   },[clearFilters])
   
@@ -32,9 +33,9 @@ export const Months = ({months, clearFilters}:MonthsProps) =>{
       labelField="label"
       valueField="value"
       placeholder={'Selecione o mês...'}
-      value={value}
+      value={month}
       onChange={item => {
-        setValue(item.value)
+        setMonth(item.value)
       }}
     />
     </>
