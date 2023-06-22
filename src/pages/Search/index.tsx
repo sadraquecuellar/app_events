@@ -2,20 +2,18 @@ import React from 'react';
 
 import * as S from './styles';
 
-import { SearchInput } from '../../components/SearchInput';
 import { CardListEvent } from '../../components/CardListEvent';
-import { Filter } from '../../components/Filter';
+import { Filters } from '../../components/Filters';
 
 export const Search = () => {
   return (
       <S.Container>
         <S.Header>
           <S.Title>
-            Buscar
+            Buscar evento
           </S.Title>
         </S.Header>
-        <SearchInput/>
-        <Filter/>
+        <Filters/>
         {/* <S.Events>
           <CardListEvent />
           <CardListEvent />

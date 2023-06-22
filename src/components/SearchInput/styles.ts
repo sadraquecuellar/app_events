@@ -4,7 +4,7 @@ import {Platform} from 'react-native';
 export const Container = styled.View`
   width: 100%;
   align-items: center;
-  padding: 0px 20px;
+  margin-bottom:10px;
 `;
 
 export const SearchContainer = styled.View`

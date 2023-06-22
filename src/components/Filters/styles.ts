@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -45,4 +46,32 @@ export const TextClear = styled.Text`
   font-size:16px;
   font-family:'Nunito_700Bold';
   color: #999;
+`;
+
+export const LineInputs = styled.View`
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin:10px 0;
+`;
+
+export const SearchContainer = styled.View`
+  width: 45%;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  border-radius: 15px;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const Icon = styled.View`
+  width: 15%;
+`;
+
+export const Search = styled.TextInput`
+  width: 85%;
+  padding: 10px;
+  padding-top:${() => Platform.OS === 'android' ? '10px' : '15px'};
+  padding-bottom:${() => Platform.OS === 'android' ? '10px' : '15px'};
 `;
