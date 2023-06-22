@@ -14,7 +14,6 @@ export const Search = ({navigation}: SearchProps ) => {
   const onSearch = async () => {    
     //  get in route with filters
     const url = `/events?search=${search}&minPrice=${minPrice}&maxPrice${maxPrice}&uf=${uf}&month=${month}&category=${category}`
-    console.log(url)
     navigation.navigate('ListSearched')
   }
 

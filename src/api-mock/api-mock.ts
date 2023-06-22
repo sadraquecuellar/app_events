@@ -1,6 +1,6 @@
-import { categories } from "../constants/categories"
-import { months } from "../constants/months"
-import { states } from "../constants/states"
+import { categories } from "../../data/categories"
+import { months } from "../../data/months"
+import { states } from "../../data/states"
 
 export const getUfs = () =>{
   return states

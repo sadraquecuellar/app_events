@@ -11,6 +11,7 @@ import { Logo } from './src/components/Header/Logo';
 import { Home } from './src/pages/Home';
 import { Search } from './src/pages/Search';
 import { ListSearched } from './src/pages/ListSearched';
+import { DetailsEvent } from './src/pages/DetailsEvent';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -51,6 +52,7 @@ const SearchStack = () =>{
     </Stack.Navigator>
   )
 }
+
 const HomeStack = () =>{
   return (
     <Stack.Navigator initialRouteName='HomeScreen'>
@@ -118,6 +120,15 @@ export function Routes() {
         <Stack.Screen
           name="HomeStack"
           component={TabNavigation}
+          options={{
+            headerTransparent: false,
+            title: '',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="DetailsEvent"
+          component={DetailsEvent}
           options={{
             headerTransparent: false,
             title: '',

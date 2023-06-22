@@ -58,10 +58,11 @@ const Participants = () => {
 interface FeatureCardProps {
   image: string,
   title: string,
-  date: string
+  date: string,
+  join: any
 }
 
-export const FeatureCard = ({image, title, date}:FeatureCardProps) => {
+export const FeatureCard = ({image, title, date, join}:FeatureCardProps) => {
  
   return (
     <S.Container style={style.boxShadow2}>
@@ -78,7 +79,7 @@ export const FeatureCard = ({image, title, date}:FeatureCardProps) => {
       </S.ContainerImageCard>
       <S.Details>
         <Participants/>
-        <S.ButtonJoin activeOpacity={0.7}>
+        <S.ButtonJoin activeOpacity={0.7} onPress={join}>
           <S.TextButton>Participar</S.TextButton>
         </S.ButtonJoin>
       </S.Details>

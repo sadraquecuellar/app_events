@@ -5,7 +5,8 @@ import { featureEvents } from '../../../data/featureEvents';
 
 import * as S from './styles';
 
-export const FeaturedEvent= () => {
+export const FeaturedEvent= ({join}: any) => {
+
   return (
     <S.Container>
       <S.Header>
@@ -16,7 +17,7 @@ export const FeaturedEvent= () => {
       <S.CarrouselCards horizontal showsHorizontalScrollIndicator={false}>
         {featureEvents.map((item, index) =>{
           return (
-            <FeatureCard key={index} image={item.image} title={item.title} date={item.date} />
+            <FeatureCard key={index} image={item.image} title={item.title} date={item.date} join={join} />
           )
         })}
       </S.CarrouselCards>

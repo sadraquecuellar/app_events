@@ -6,12 +6,17 @@ import { SafeAreaView } from 'react-native';
 
 import * as S from './styles';
 
-export const Home = () => {
+export const Home = ({navigation}: any) => {
+
+  const handleDetails = () => {
+    navigation.navigate('DetailsEvent')
+  }
+
   return (
     <SafeAreaView>
       <S.ScrollPage showsVerticalScrollIndicator={false}>
         <S.Container>
-          <FeaturedEvent/>
+          <FeaturedEvent join={handleDetails}/>
           <ListEvents/>
         </S.Container>
       </S.ScrollPage>
