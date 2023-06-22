@@ -11,12 +11,16 @@ import { Categories } from './Categories';
 
 import * as S from './styles';
 
-export const Filters = () => {
+export const Filters = ({onSearch}: any) => {
   const [clearFilters, setClearFilter] = useState(false)
 
   const { data: dataUf, isLoading: ufLoading } = useQuery('ufs', getUfs)
   const { data: dataMonth, isLoading: monthLoading } = useQuery('months', getMonths)
   const { data: dataCategory, isLoading: categoriesLoading } = useQuery('categories', getCategories)
+
+  const handleSearch = () => {
+    onSearch()
+  }
 
   return (
     <S.Container>
@@ -26,7 +30,7 @@ export const Filters = () => {
       <Location ufs={!ufLoading && dataUf || [{ value: '', label: ''}]} clearFilters={clearFilters}/>
       <Categories categories={!categoriesLoading && dataCategory || [{ value: '', label: ''}]} clearFilters={clearFilters}/>
       <S.Row>
-        <S.ButtonSearch activeOpacity={0.7}>
+        <S.ButtonSearch activeOpacity={0.7} onPress={handleSearch}>
           <S.TextButton>
             Buscar
           </S.TextButton>
