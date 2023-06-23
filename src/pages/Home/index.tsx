@@ -16,15 +16,17 @@ export const Home = ({navigation}: RouteType) => {
     navigation.navigate('Details')
   }
 
-  const { data: upComingEvents, isLoading } = useQuery('upComingEvents', getUpComingEvents)
-  const { data: featuredEvents } = useQuery('featuredEvents', getFeaturedEvents)
+  const { data: upComingEvents, isLoading: upComingEventsEvents } = useQuery('upComingEvents', getUpComingEvents)
+  const { data: featuredEvents, isLoading: featuredEventsLoading } = useQuery('featuredEvents', getFeaturedEvents)
 
   return (
     <SafeAreaView>
       <S.ScrollPage showsVerticalScrollIndicator={false}>
         <S.Container>
-          <FeaturedEvent join={handleDetails} events={featuredEvents as EventType[]}/>
-          {!isLoading && (
+          {!featuredEventsLoading && (
+            <FeaturedEvent join={handleDetails} events={featuredEvents as EventType[]}/>
+          )}
+          {!upComingEventsEvents && (
             <ListEvents join={handleDetails} events={upComingEvents as EventType[]} />
           )}
         </S.Container>

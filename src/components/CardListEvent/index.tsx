@@ -4,6 +4,7 @@ import { AntDesign } from '@expo/vector-icons';
 
 import * as S from './styles';
 import { EventType } from '../../types/EventType';
+import { useEvent } from '../../hooks/useEvent';
 
 const style = StyleSheet.create({
   boxShadow: {
@@ -25,9 +26,17 @@ type CardListEventType = {
 }
 
 export const CardListEvent = ({join, event}: CardListEventType) => {
+
+  const {setEvent} = useEvent()
+
+  const handleClick = () =>{
+    setEvent(event)
+    join()
+  }
+
   return (
-    <S.Container style={style.boxShadow} activeOpacity={0.7} onPress={join}>
-        <S.Image source={{uri: event?.image }}/>
+    <S.Container style={style.boxShadow} activeOpacity={0.7} onPress={handleClick}>
+        <S.Image testID='imageCardListEvent' source={{uri: event?.image }}/>
         <S.Details>
           <S.TextSecondary>
             {event?.location}

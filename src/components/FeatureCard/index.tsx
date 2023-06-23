@@ -35,27 +35,29 @@ const Participants = () => {
 
 interface FeatureCardProps {
   event: EventType
-  join: ()=> void
+  join: () => void
 }
 
 export const FeatureCard = ({event, join}:FeatureCardProps) => {
  
-  const {} = useEvent()
+  const {setEvent} = useEvent()
 
   const handleClick = () =>{
-
+    setEvent(event)
+    join()
   }
 
   return (
-    <S.Container style={style.boxShadow2} activeOpacity={0.2} onPress={join}>
+    <S.Container style={style.boxShadow2} activeOpacity={0.2} onPress={handleClick}>
       <S.ContainerImageCard>
          <S.ImageCard 
+          testID='imageFeatureCard'
           source={{
             uri: event?.image,
           }}
         />
         <S.DetailsImageCard>
-          <S.TextDetailsPrimary>{event?.title}</S.TextDetailsPrimary>
+          <S.TextDetailsPrimary >{event?.title}</S.TextDetailsPrimary>
           <S.TextDetailsSecondary>{event?.date}</S.TextDetailsSecondary>
         </S.DetailsImageCard>
       </S.ContainerImageCard>

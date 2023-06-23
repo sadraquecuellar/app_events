@@ -21,7 +21,7 @@ export const events = [
     location: 'São Paulo - SP'
   },
   {
-    image: 'https://agendadorecife.com.br/wp-content/uploads/2022/02/barbixas-em-recife.jpeg',
+    image: 'https://s2.glbimg.com/4puALGVNH57mSOr1bD_2rzDBBoY=/s.glbimg.com/et/gs/f/original/2015/09/03/1.png',
     title: 'Barbixas',
     date: '03 de agosto',
     hour: '16h',

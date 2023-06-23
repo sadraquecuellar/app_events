@@ -10,6 +10,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { Routes } from './routes';
 import { FiltersProvider } from './src/context/filtersContext';
+import { EventProvider } from './src/context/eventContext';
 
 export default function App() {
   const queryClient = new QueryClient()
@@ -28,7 +29,9 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <FiltersProvider>
-        <Routes/>
+        <EventProvider>
+          <Routes/>
+        </EventProvider>
       </FiltersProvider>
     </QueryClientProvider>
   );

@@ -14,7 +14,7 @@ export const EventContext = createContext<EventContextData>({
     location: '',
     title: ''
   },
-  setEvent: () => {},
+  setEvent: () => {}
 });
 
 type EventProviderProps = {

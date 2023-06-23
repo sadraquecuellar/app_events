@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 
 import * as S from './styles';
 import { RouteType } from '../../types/RouteType';
+import { useEvent } from '../../hooks/useEvent';
 
 export const DetailsEvent = ({navigation}: RouteType) => {
+
+  const {event} = useEvent()
 
   const handleCheckout = () =>{
     navigation.navigate('Checkout')
@@ -12,14 +15,14 @@ export const DetailsEvent = ({navigation}: RouteType) => {
   return (
     <S.Container>
       <S.Content>
-        <S.Image source={{uri: 'https://media.seudinheiro.com/uploads/2023/03/Lollapalooza-Brasil-2022_divulgacao_-e1679498840676.jpg'}} />
+        <S.Image source={{uri: event?.image}} />
         <S.Details>
           <S.BoxTextDetails>
             <S.TextPrimary>
-              Rock in Rio
+              {event?.title}
             </S.TextPrimary>
             <S.TextSecondary>
-                09 de Dezembro - 16:00 h
+                {event?.date} - {event?.hour}
             </S.TextSecondary>
           </S.BoxTextDetails>
           <S.BoxPriceDetails>

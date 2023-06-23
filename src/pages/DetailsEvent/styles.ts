@@ -29,7 +29,7 @@ export const Details = styled.View`
   margin-top: 10px;
 `;
 export const BoxTextDetails = styled.View`
-  width: 60%;
+  width: 70%;
 `;
 
 export const TextPrimary = styled.Text`
@@ -43,7 +43,7 @@ export const TextSecondary = styled.Text`
 `;
 
 export const BoxPriceDetails = styled.View`
-  width: 40%;
+  width: 30%;
   align-items: flex-end;
   justify-content: center;
 `;
