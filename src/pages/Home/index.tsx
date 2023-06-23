@@ -10,7 +10,7 @@ import * as S from './styles';
 export const Home = ({navigation}: RouteType) => {
 
   const handleDetails = () => {
-    navigation.navigate('DetailsEvent')
+    navigation.navigate('Details')
   }
 
   return (

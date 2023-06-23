@@ -51,7 +51,7 @@ export const BoxPriceDetails = styled.View`
 export const Price = styled.View`
   padding: 5px 10px;
   border-radius:20px;
-  background-color: #47d147;
+  background-color: #4BB543;
   align-items: center;
   justify-content: center;
 `;

@@ -6,7 +6,7 @@ import * as S from './styles';
 export const ListSearched = ({navigation}: RouteType) => {
 
   const handleDetails = () => {
-    navigation.navigate('DetailsEvent')
+    navigation.navigate('Details')
   }
 
   return (

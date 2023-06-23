@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -12,11 +11,56 @@ import { Home } from './src/pages/Home';
 import { Search } from './src/pages/Search';
 import { ListSearched } from './src/pages/ListSearched';
 import { DetailsEvent } from './src/pages/DetailsEvent';
+import { Checkout } from './src/pages/Checkout';
+import { Finalized } from './src/pages/Finalized';
+import { ArrowBack } from './src/components/Header/ArrowBack';
+import { RouteType } from './src/types/RouteType';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const SearchStack = () =>{
+const DetailsStack = ({navigation}: RouteType) =>{
+  return (
+    <Stack.Navigator initialRouteName='DetailsEvent'>
+      <Stack.Screen
+        name="DetailsEvent"
+        component={DetailsEvent}
+        options={{
+          title:'Detalhes do Evento',
+          headerTitleAlign: 'center',
+          headerShadowVisible: false,
+          headerLeft: () => (
+            <ArrowBack navigation={navigation} goTo="HomeScreen"/>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Checkout"
+        component={Checkout}
+        options={{
+          title:'Finalizar Pagamento',
+          headerTitleAlign: 'center',
+          headerShadowVisible: false,
+          headerLeft: () => (
+            <ArrowBack navigation={navigation} goTo="DetailsEvent"/>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Finalized"
+        component={Finalized}
+        options={{
+          title:'',
+          headerTitleAlign: 'center',
+          headerBackVisible: false,
+          headerShadowVisible: false,
+        }}
+      />
+    </Stack.Navigator>
+  )
+}
+
+const SearchStack = ({navigation}: RouteType) =>{
   return (
     <Stack.Navigator initialRouteName='SearchStack'>
       <Stack.Screen
@@ -45,8 +89,9 @@ const SearchStack = () =>{
           headerRight: () => (
             <UserProfile/>
           ),
-          headerBackTitle: "Voltar",
-
+          headerLeft: () => (
+            <ArrowBack navigation={navigation} goTo="Search"/>
+          ),
         }}
       />
     </Stack.Navigator>
@@ -127,13 +172,12 @@ export function Routes() {
           }}
         />
         <Stack.Screen
-          name="DetailsEvent"
-          component={DetailsEvent}
+          name="Details"
+          component={DetailsStack}
           options={{
-            title:'Detalhes do Evento',
-            headerTitleAlign: 'center',
-            headerShadowVisible: false,
-            headerBackTitleVisible: false
+            headerTransparent: false,
+            title: '',
+            headerShown: false,
           }}
         />
       </Stack.Navigator>

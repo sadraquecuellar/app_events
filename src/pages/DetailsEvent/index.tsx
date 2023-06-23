@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import * as S from './styles';
+import { RouteType } from '../../types/RouteType';
 
-export const DetailsEvent = () => {
+export const DetailsEvent = ({navigation}: RouteType) => {
+
+  const handleCheckout = () =>{
+    navigation.navigate('Checkout')
+  }
+
   return (
     <S.Container>
       <S.Content>
@@ -19,7 +25,7 @@ export const DetailsEvent = () => {
           <S.BoxPriceDetails>
             <S.Price>
               <S.TextPrice>
-                Grátis
+                R$ 500
               </S.TextPrice>
             </S.Price>
           </S.BoxPriceDetails>
@@ -34,7 +40,7 @@ export const DetailsEvent = () => {
         </S.BoxDescriptionDetails>
       </S.Content>
       <S.Footer>
-        <S.ButtonJoin>
+        <S.ButtonJoin activeOpacity={0.7} onPress={()=> handleCheckout()}>
           <S.TextButtonJoin>
             Comprar agora
           </S.TextButtonJoin>
