@@ -14,11 +14,6 @@ export const Container = styled.View`
 export const Content  = styled.View`
 `;
 
-export const Title = styled.Text`
-  font-size: 20px;
-  font-family: 'Nunito_700Bold';
-`;
-
 export const Card = styled.View`
   width: 100%;
   background: #fff;

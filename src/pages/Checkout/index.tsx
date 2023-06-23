@@ -15,9 +15,6 @@ export const Checkout  = ({navigation}: RouteType) => {
     <S.SafeAreaView>
       <S.Container>
         <S.Content>
-          {/* <S.Title>
-            Resultado da busca
-          </S.Title> */}
           <S.Card style={style.boxShadow}>
             <S.TextPrimary>
               Detalhes do cartão

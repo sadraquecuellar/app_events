@@ -1,11 +1,17 @@
 import React from 'react';
 
 import { FeatureCard } from '../FeatureCard';
-import { featureEvents } from '../../../data/featureEvents';
+
+import { EventType } from '../../types/EventType';
 
 import * as S from './styles';
 
-export const FeaturedEvent= ({join}: any) => {
+interface FeaturedEventProps {
+  join: () => void
+  events: EventType[]
+}
+
+export const FeaturedEvent= ({join, events}: FeaturedEventProps) => {
 
   return (
     <S.Container>
@@ -15,9 +21,9 @@ export const FeaturedEvent= ({join}: any) => {
         </S.Title>
       </S.Header>
       <S.CarrouselCards horizontal showsHorizontalScrollIndicator={false}>
-        {featureEvents.map((item, index) =>{
+        {events.map((event, index) =>{
           return (
-            <FeatureCard key={index} image={item.image} title={item.title} date={item.date} join={join} />
+            <FeatureCard key={index} event={event} join={join} />
           )
         })}
       </S.CarrouselCards>

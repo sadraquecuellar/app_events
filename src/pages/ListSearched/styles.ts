@@ -5,11 +5,11 @@ export const ScrollPage = styled.ScrollView.attrs({
 })`
   flex: 1;
   background: #FFF;
-  padding:20px;
 `;
 export const Container = styled.View`
   flex: 1;
   background: #FFF;
+  padding:20px;
   padding-bottom:40px;
 `;
 

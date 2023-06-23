@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useQuery} from 'react-query';
 
-import { getCategories, getMonths, getUfs } from '../../api-mock/api-mock';
+import { getCategories, getMonths, getUfs } from '../../services/filterServices';
 
 import { Price } from './Price';
 import { SearchInput } from '../SearchInput';

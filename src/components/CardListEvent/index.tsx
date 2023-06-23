@@ -1,8 +1,9 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 import * as S from './styles';
-import { StyleSheet } from 'react-native';
+import { EventType } from '../../types/EventType';
 
 const style = StyleSheet.create({
   boxShadow: {
@@ -19,19 +20,20 @@ const style = StyleSheet.create({
 });
 
 type CardListEventType = {
-  join: () => void
+  join: () => void,
+  event: EventType
 }
 
-export const CardListEvent = ({join}: CardListEventType) => {
+export const CardListEvent = ({join, event}: CardListEventType) => {
   return (
     <S.Container style={style.boxShadow} activeOpacity={0.7} onPress={join}>
-        <S.Image source={{uri: 'https://gerenciador.popload.com.br/wp-content/uploads/2015/01/220115_acdc2.jpg' }}/>
+        <S.Image source={{uri: event?.image }}/>
         <S.Details>
           <S.TextSecondary>
-            Rio de Janeiro, RJ
+            {event?.location}
           </S.TextSecondary>
           <S.TextPrimary>
-            AC/DC
+            {event?.title}
           </S.TextPrimary>
         </S.Details>
         <S.Button>
