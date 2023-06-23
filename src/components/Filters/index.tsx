@@ -4,7 +4,7 @@ import {useQuery} from 'react-query';
 import { getCategories, getMonths, getUfs } from '../../services/filterServices';
 
 import { Price } from './Price';
-import { SearchInput } from '../SearchInput';
+import { SearchInput } from './SearchInput';
 import { Months } from './Months';
 import { Location } from './Location';
 import { Categories } from './Categories';
