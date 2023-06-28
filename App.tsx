@@ -12,8 +12,10 @@ import { Routes } from './routes';
 import { FiltersProvider } from './src/context/filtersContext';
 import { EventProvider } from './src/context/eventContext';
 
+const queryClient = new QueryClient()
+
+
 export default function App() {
-  const queryClient = new QueryClient()
 
   let [fontsLoaded] = useFonts({
     Nunito_300Light,
@@ -26,6 +28,7 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
+  
   return (
     <QueryClientProvider client={queryClient}>
       <FiltersProvider>
